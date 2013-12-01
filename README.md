@@ -5,7 +5,7 @@ A generator for [Yeoman](http://yeoman.io).
 
 ## Getting Started
 
-This is Yeoman generator supporting [Ian W. Remmel's](https://github.com/ianwremmel) workflow. You probably don't want to use it and it will likely never be added to NPM.
+This is a Yeoman generator supporting [Ian W. Remmel's](https://github.com/ianwremmel) workflow. You probably don't want to use it and it will likely never be added to NPM.
 
 ## License
 
