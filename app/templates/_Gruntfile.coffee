@@ -30,10 +30,9 @@ module.exports = (grunt) ->
       test: 'test'
     <% if (enableBrowserSupport) { %>
     clean:
-      dist:
-        files: [
-          '<%%= yeoman.dist %>'
-        ]
+      dist: [
+        '<%%= yeoman.dist %>'
+      ]
     <% } %>
     jshint:
       options:
