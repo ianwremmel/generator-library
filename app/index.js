@@ -47,8 +47,6 @@ LibraryGenerator.prototype.askFor = function askFor() {
 LibraryGenerator.prototype.projectfiles = function projectfiles() {
   this.mkdir('src');
 
-  this.copy('src/index.js', 'src/index.js');
-
   this.copy('editorconfig', '.editorconfig');
   this.copy('gitignore', '.gitignore');
   this.copy('LICENSE', 'LICENSE');
@@ -59,18 +57,16 @@ LibraryGenerator.prototype.projectfiles = function projectfiles() {
   if (this.enableBrowserSupport) {
     this.template('_bower.json', 'bower.json');
   }
-
-  if (this.enableTests) {
-    this.mkdir('test');
-    this.template('test/_test.coffee', 'test/test.coffee');
-  }
 };
 
+// Reminder: this function can't be called `src` because it breaks yeoman.
+LibraryGenerator.prototype.app = function app() {
+  this.copy('src/index.js', 'src/index.js');
+};
 
-
-
-
-
-
-
-
+LibraryGenerator.prototype.test = function test() {
+  if (this.enableTests) {
+    this.mkdir('test');
+    this.template('test/_test.js', 'test/test.js');
+  }
+};

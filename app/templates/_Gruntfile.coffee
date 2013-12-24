@@ -18,38 +18,42 @@ module.exports = (grunt) ->
   ]
   <% } %>
 
-  grunt.registerTask 'default' ['build']
+  grunt.registerTask 'default', ['build']
 
   grunt.initConfig
+    pkg:
+      grunt.file.readJSON 'package.json'
+
+    yeoman:
+      src: 'src'
+      dist: 'dist'
+      test: 'test'
     <% if (enableBrowserSupport) { %>
     clean:
       dist:
         files: [
-          'dist'
+          '<%%= yeoman.dist %>'
         ]
     <% } %>
     jshint:
       options:
         reporter: require('jshint-stylish')
         jshintrc: '.jshintrc'
-      src:
-        files: [
-          'src/**/*.js'
+      src: [
+          '<%%= yeoman.src %>/**/*.js'
         ]
     <% if (enableBrowserSupport) { %>
     browserify:
       dist:
         files: [
-          'dist/<%= _.slugify(appname) %>.js': 'src/index.js'
+          '<%%= yeoman.dist %>/<%= _.slugify(appname) %>.js': 'src/index.js'
         ]
+        standalone: '<%= _.camelize(appname) %>'
     <% } %>
     <% if (enableTests) { %>
     mochacli:
       spec:
-        dist: 'test/test.coffee'
+        dist: '<%%= yeoman.test %>/test.js'
         options:
-          compilers: [
-            'coffee:coffee-script'
-          ]
           reporter: 'spec'
     <% } %>

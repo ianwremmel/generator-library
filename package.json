@@ -9,7 +9,7 @@
   "bugs": "https://github.com/ianwremmel/generator-library/issues",
   "author": {
     "name": "Ian Remmel",
-    "email": "ian@collaborate.com",
+    "email": "design@ianwremmel.com",
     "url": "https://github.com/ianwremmel"
   },
   "main": "app/index.js",

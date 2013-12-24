@@ -11,8 +11,8 @@
     <% if (enableBrowserSupport) { %>
     "grunt-browserify": "~1.2.0",
     "debowerify": "~0.3.0",
-    <% } %>
-    <% if (enableTests) { %>
+    <% }
+    if (enableTests) { %>
     "grunt-mocha-cli": "~1.3.0",
     "mocha": "~1.14.0",
     "chai": "~1.8.0",
