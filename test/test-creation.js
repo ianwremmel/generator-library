@@ -29,7 +29,7 @@ describe('library generator', function () {
       'Gruntfile.coffee',
       'bower.json',
       'package.json',
-      'test/test.coffee',
+      'test/test.js',
       'src/index.js'
     ];
 
