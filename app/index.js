@@ -56,10 +56,3 @@ LibraryGenerator.prototype.projectfiles = function projectfiles() {
 LibraryGenerator.prototype.app = function app() {
   this.copy('src/index.js', 'src/index.js');
 };
-
-LibraryGenerator.prototype.test = function test() {
-  if (this.enableTests) {
-    this.mkdir('test');
-    this.template('test/_test.js', 'test/test.js');
-  }
-};

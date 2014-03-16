@@ -1,10 +1,7 @@
 {
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.1",
-  "main": "src/index.js",<% if (enableTests) { %>
-  "scripts": {
-    "test": "./node_modules/grunt-cli/bin/grunt test"
-  },<% } %>
+  "main": "src/index.js",
   "devDependencies": {<% if (supportBrowsers) { %>
     "grunt-shell": "^0.6.4",
     "browserify": "^3.32.1",<% } %>
