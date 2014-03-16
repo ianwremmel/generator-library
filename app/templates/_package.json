@@ -9,7 +9,7 @@
   <% } %>
   "devDependencies": {
     <% if (enableBrowserSupport) { %>
-    "grunt-contrib-clean": "~0.5.0"
+    "grunt-contrib-clean": "~0.5.0",
     "grunt-browserify": "~1.2.0",
     "debowerify": "~0.3.0",
     <% }
