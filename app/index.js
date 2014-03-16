@@ -24,6 +24,11 @@ LibraryGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
+    type: 'confirm',
+    name: 'supportBrowsers',
+    message: 'Can this library be run in a web browser?',
+    default: true,
+  }, {
     type: 'number',
     name: 'numberOfSpaces',
     message: 'How many spaces do you prefer?',
