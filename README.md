@@ -7,20 +7,20 @@ A generator for [Yeoman](http://yeoman.io).
 
 Make sure you've install Yeoman.
 
-```
+```bash
 $ npm install -g yo
 ```
 
 To install generator-library, fork this repository, clone your repository, and, in the new directory, run:
 
-```
+```bash
 $ npm link
 ```
 
 Finally, invoke the generator from your new project directory:
 
-```
-$ yo project
+```bash
+$ yo library
 ```
 
 ### generator-library

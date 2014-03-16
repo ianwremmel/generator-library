@@ -23,6 +23,7 @@ describe('library generator', function () {
     var expected = [
       // add files you expect to exist here.
       '.jshintrc',
+      '.jscsrc',
       '.editorconfig',
       '.gitignore',
       'LICENSE',
@@ -34,8 +35,7 @@ describe('library generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'enableTests': true,
-      'enableBrowserSupport': true
+      'numberOfSpaces': 2
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {

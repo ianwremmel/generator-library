@@ -24,15 +24,10 @@ LibraryGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
-    type: 'confirm',
-    name: 'enableTests',
-    message: 'Will this project include a test suite?',
-    default: true
-  }, {
-    type: 'confirm',
-    name: 'enableBrowserSupport',
-    message: 'Will this project run in a web browser?',
-    default: true
+    type: 'number',
+    name: 'numberOfSpaces',
+    message: 'How many spaces do you prefer?',
+    default: 2
   }];
 
   this.prompt(prompts, function (props) {
@@ -47,16 +42,14 @@ LibraryGenerator.prototype.askFor = function askFor() {
 LibraryGenerator.prototype.projectfiles = function projectfiles() {
   this.mkdir('src');
 
-  this.copy('editorconfig', '.editorconfig');
+  this.copy('_editorconfig', '.editorconfig');
   this.copy('gitignore', '.gitignore');
   this.copy('LICENSE', 'LICENSE');
 
   this.template('_package.json', 'package.json');
   this.template('_jshintrc', '.jshintrc');
+  this.template('_jscs', '.jscs');
   this.template('_Gruntfile.coffee', 'Gruntfile.coffee');
-  if (this.enableBrowserSupport) {
-    this.template('_bower.json', 'bower.json');
-  }
 };
 
 // Reminder: this function can't be called `src` because it breaks yeoman.

@@ -1,58 +1,73 @@
 # Generated on <%= (new Date()).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
-
-  grunt.registerTask 'build', [
-    <% if (enableBrowserSupport) { %>
-    'clean'
-    <% } %>
-    'jshint'
-    <% if (enableBrowserSupport) { %>
-    'browserify'
-    <% } %>
-  ]
-  <% if (enableTests) { %>
-  grunt.registerTask 'test', [
-    'build'
-    'mochacli'
-  ]
-  <% } %>
-
-  grunt.registerTask 'default', ['build']
+  require('time-grunt')(grunt)
 
   grunt.initConfig
-    pkg:
-      grunt.file.readJSON 'package.json'
+    pkg: grunt.file.readJSON 'package.json'
 
-    yeoman:
-      src: 'src'
+    config:
+      src: 'src',
       dist: 'dist'
-      test: 'test'
-    <% if (enableBrowserSupport) { %>
+
+
+    # Utilities
+    # ---------
+
     clean:
       dist: [
-        '<%%= yeoman.dist %>'
+        '<%= config.dist %>'
       ]
-    <% } %>
+
+    bump:
+      options:
+        files: [
+          'package.json'
+          'bower.json'
+        ]
+        tagName: '%VERSION%'
+        updateConfigs: ['pkg']
+
+
+    # Static Analysis
+    # ---------------
+
     jshint:
       options:
-        reporter: require('jshint-stylish')
+        report: require 'jshint-stylish'
         jshintrc: '.jshintrc'
       src: [
-          '<%%= yeoman.src %>/**/*.js'
-        ]
-    <% if (enableBrowserSupport) { %>
-    browserify:
-      dist:
-        files: [
-          '<%%= yeoman.dist %>/<%= _.slugify(appname) %>.js': 'src/index.js'
-        ]
-        standalone: '<%= _.camelize(appname) %>'
-    <% } %>
-    <% if (enableTests) { %>
-    mochacli:
-      spec:
-        dist: '<%%= yeoman.test %>/test.js'
-        options:
-          reporter: 'spec'
-    <% } %>
+        '<%= config.src %>/**/*.js'
+      ]
+
+    jscs:
+      options:
+        config: '.jscsrc'
+      src: '<%= config.src %>/**/*.js'
+
+
+    # Build Steps
+    # -----------
+
+    # grunt-browserify uses an outdated interface to browserify-shim which
+    # doesn't support the "global:" syntax.
+    shell:
+      browserify:
+        command: 'mkdir -p <%= config.dist %> && ./node_modules/.bin/browserify -d -s <%= _.camelize(appname) %> <%= config.src %> > <%= config.dist %>/<%= _.sluggify(appname) %>.js'
+
+
+    # Public Tasks
+    # ------------
+
+    grunt.registerTask 'static-analysis', [
+      'jshint'
+      'jscs'
+    ]
+
+    grunt.registerTask 'build', [
+      'clean'
+      'static-analysis'
+      'shell:browserify'
+    ]
+
+    grunt.registerTask 'default', ['build']

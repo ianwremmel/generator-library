@@ -1,6 +1,13 @@
 {
-  "name": "<%= _.slugify(appname) %>",
+  "name": "<%= _.sluggify(appname) %>",
   "version": "0.0.1",
-  "dependencies": {}
+  "main": "dist/<%= _.sluggify(appname) %>.js",
+  "ignore": [
+    "node_modules",
+    "src"
+  ],
+  "authors": [
+    "Ian Remmel <design@ianwremmel.com>"
+  ],
+  "private": true
 }
-
