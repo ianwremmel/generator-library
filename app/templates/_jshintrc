@@ -1,6 +1,6 @@
 {
     "node": true,
-    "browser": <%= enableBrowserSupport %>,
+    "browser": <%= supportBrowsers %>,
     "esnext": true,
     "bitwise": true,
     "camelcase": true,

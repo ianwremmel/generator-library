@@ -30,12 +30,12 @@ describe('library generator', function () {
       'Gruntfile.coffee',
       'bower.json',
       'package.json',
-      'test/test.js',
       'src/index.js'
     ];
 
     helpers.mockPrompt(this.app, {
-      'numberOfSpaces': 2
+      'numberOfSpaces': 2,
+      'supportBrowsers': true
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {

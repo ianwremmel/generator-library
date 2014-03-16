@@ -42,13 +42,14 @@ LibraryGenerator.prototype.askFor = function askFor() {
 LibraryGenerator.prototype.projectfiles = function projectfiles() {
   this.mkdir('src');
 
-  this.copy('_editorconfig', '.editorconfig');
   this.copy('gitignore', '.gitignore');
   this.copy('LICENSE', 'LICENSE');
 
+  this.template('_editorconfig', '.editorconfig');
+  this.template('_bower.json', 'bower.json');
   this.template('_package.json', 'package.json');
   this.template('_jshintrc', '.jshintrc');
-  this.template('_jscs', '.jscs');
+  this.template('_jscsrc', '.jscsrc');
   this.template('_Gruntfile.coffee', 'Gruntfile.coffee');
 };
 
