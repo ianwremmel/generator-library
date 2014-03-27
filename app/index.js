@@ -24,6 +24,10 @@ LibraryGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
+    type: 'string',
+    name: 'username',
+    message: 'Enter your github username.'
+  }, {
     type: 'confirm',
     name: 'supportBrowsers',
     message: 'Can this library be run in a web browser?',
@@ -56,6 +60,7 @@ LibraryGenerator.prototype.projectfiles = function projectfiles() {
   this.template('_jshintrc', '.jshintrc');
   this.template('_jscsrc', '.jscsrc');
   this.template('_Gruntfile.coffee', 'Gruntfile.coffee');
+  this.template('_README.md', 'README.md');
 };
 
 // Reminder: this function can't be called `src` because it breaks yeoman.

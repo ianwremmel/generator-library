@@ -1,4 +1,6 @@
-# generator-library [![Build Status](https://secure.travis-ci.org/ianwremmel/generator-library.png?branch=master)](https://travis-ci.org/ianwremmel/generator-library)
+# generator-library [![Build Status](https://secure.travis-ci.org/ianwremmel/generator-library.png?branch=master)](https://travis-ci.org/ianwremmel/generator-library) [![Dependencies](https://david-dm.org/ianwremmel/generator-library.png)](https://david-dm.org/ianwremmel/generator-library)
+
+
 
 A generator for [Yeoman](http://yeoman.io).
 

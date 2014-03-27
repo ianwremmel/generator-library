@@ -4,8 +4,8 @@
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
 
-
 describe('library generator', function () {
+
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {
@@ -34,13 +34,17 @@ describe('library generator', function () {
     ];
 
     helpers.mockPrompt(this.app, {
-      'numberOfSpaces': 2,
-      'supportBrowsers': true
+      username: 'ianwremmel',
+      numberOfSpaces: 2,
+      supportBrowsers: true
     });
+
     this.app.options['skip-install'] = true;
+
     this.app.run({}, function () {
       helpers.assertFiles(expected);
       done();
     });
   });
+
 });
