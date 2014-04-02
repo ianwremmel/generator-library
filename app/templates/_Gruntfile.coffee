@@ -70,7 +70,7 @@ module.exports = (grunt) ->
     # doesn't support the "global:" syntax.
     shell:
       browserify:
-        command: 'mkdir -p <%= config.dist %> && ./node_modules/.bin/browserify -d -s <%= _.camelize(appname) %> <%= config.src %> > <%= config.dist %>/<%= _.slugify(appname) %>.js'
+        command: 'mkdir -p <%%= config.dist %> && ./node_modules/.bin/browserify -d -s <%= _.camelize(appname) %> <%%= config.src %> > <%%= config.dist %>/<%= _.slugify(appname) %>.js'
 <% } %>
 
     # Public Tasks
