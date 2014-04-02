@@ -16,7 +16,7 @@ module.exports = (grunt) ->
 
     clean:
       dist: [
-        '<%= config.dist %>'
+        '<%%= config.dist %>'
       ]
 
     bump:
@@ -37,13 +37,26 @@ module.exports = (grunt) ->
         report: require 'jshint-stylish'
         jshintrc: '.jshintrc'
       src: [
-        '<%= config.src %>/**/*.js'
+        '<%%= config.src %>/**/*.js'
       ]
 
     jscs:
       options:
         config: '.jscsrc'
-      src: '<%= config.src %>/**/*.js'
+      src: '<%%= config.src %>/**/*.js'
+
+
+    # Tests
+    # -----
+
+    mochacli:
+      options:
+        files: ['test/spec/**/*/js']
+        reporter: 'spec'
+      spec: {}
+      debug:
+        options:
+          debug: true
 
 <% if (supportBrowsers) { %>
     # Build Steps
@@ -67,7 +80,11 @@ module.exports = (grunt) ->
     grunt.registerTask 'build', [
       'clean'
       'static-analysis'
+      'test:spec'
       'shell:browserify'
     ]
+
+    grunt.registerTask 'test:spec', ['mochacli:spec']
+    grunt.registerTask 'test:debug', ['mochacli:debug']
 
     grunt.registerTask 'default', ['build']

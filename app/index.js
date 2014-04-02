@@ -26,7 +26,8 @@ LibraryGenerator.prototype.askFor = function askFor() {
   var prompts = [{
     type: 'string',
     name: 'username',
-    message: 'Enter your github username.'
+    message: 'Enter your github username.',
+    default: 'ianwremmel'
   }, {
     type: 'confirm',
     name: 'supportBrowsers',
@@ -66,4 +67,13 @@ LibraryGenerator.prototype.projectfiles = function projectfiles() {
 // Reminder: this function can't be called `src` because it breaks yeoman.
 LibraryGenerator.prototype.app = function app() {
   this.copy('src/index.js', 'src/index.js');
+};
+
+LibraryGenerator.prototype.test = function test() {
+  this.mkdir('test');
+  this.mkdir('test/lib');
+  this.mkdir('test/spec');
+
+  this.template('test/spec/_test.js', 'test/spec/test.js');
+  this.template('test/_jshintrc', 'test/.jshintrc');
 };
