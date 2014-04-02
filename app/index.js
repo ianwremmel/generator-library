@@ -24,20 +24,25 @@ LibraryGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [{
-    type: 'string',
-    name: 'username',
-    message: 'Enter your github username.',
-    default: 'ianwremmel'
-  }, {
-    type: 'confirm',
-    name: 'supportBrowsers',
-    message: 'Can this library be run in a web browser?',
-    default: true,
-  }, {
     type: 'number',
     name: 'numberOfSpaces',
     message: 'How many spaces do you prefer?',
     default: 2
+  }, {
+    type: 'confirm',
+    name: 'supportBrowsers',
+    message: 'Can this library be run in a web browser?',
+    default: true
+  }, {
+    type: 'confirm',
+    name: 'bowerIncludes',
+    message: 'Will you be including packages from Bower?',
+    default: false
+  }, {
+    type: 'string',
+    name: 'username',
+    message: 'Enter your github username.',
+    default: 'ianwremmel'
   }];
 
   this.prompt(prompts, function (props) {
@@ -53,7 +58,7 @@ LibraryGenerator.prototype.projectfiles = function projectfiles() {
   this.mkdir('src');
 
   this.copy('gitignore', '.gitignore');
-  this.copy('LICENSE', 'LICENSE');
+  this.template('_LICENSE', '_LICENSE');
 
   this.template('_editorconfig', '.editorconfig');
   this.template('_bower.json', 'bower.json');
@@ -62,6 +67,12 @@ LibraryGenerator.prototype.projectfiles = function projectfiles() {
   this.template('_jscsrc', '.jscsrc');
   this.template('_Gruntfile.coffee', 'Gruntfile.coffee');
   this.template('_README.md', 'README.md');
+
+  if (this.bowerIncludes) {
+    this.mkdir('npm');
+
+    this.copy('npm/postinstall.sh', 'npm/postinstall.sh');
+  }
 };
 
 // Reminder: this function can't be called `src` because it breaks yeoman.
