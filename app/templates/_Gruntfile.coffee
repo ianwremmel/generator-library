@@ -28,6 +28,10 @@ module.exports = (grunt) ->
         tagName: '%VERSION%'
         updateConfigs: ['pkg']
 
+    githooks:
+      'pre-commit':
+        'pre-commit': 'static-analysis'
+
 
     # Static Analysis
     # ---------------
