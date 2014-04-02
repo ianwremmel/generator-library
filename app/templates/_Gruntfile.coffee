@@ -55,7 +55,7 @@ module.exports = (grunt) ->
 
     mochacli:
       options:
-        files: ['test/spec/**/*/js']
+        files: ['test/spec/**/*.js']
         reporter: 'spec'
       spec: {}
       debug:

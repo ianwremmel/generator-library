@@ -59,7 +59,6 @@
     "+",
     "-",
     "/",
-    "*",
     "=",
     "==",
     "===",
@@ -72,12 +71,14 @@
     "||",
     "&&"
   ],
-  "requireLeftStickedOperators": [","],
+  "requireLeftStickedOperators": [
+    ",",
+    "*"
+  ],
   "disallowRightStickedOperators": [
     "?",
     "+",
     "/",
-    "*",
     ":",
     "=",
     "==",
@@ -91,7 +92,10 @@
     "||",
     "&&"
   ],
-  "requireRightStickedOperators": ["!"],
+  "requireRightStickedOperators": [
+    "!",
+    "*"
+  ],
   "disallowSpaceAfterPrefixUnaryOperators": ["++", "--", "+", "-", "~", "!"],
   "disallowSpaceBeforePostfixUnaryOperators": ["++", "--"],
   "disallowSpaceBeforeBinaryOperators": [
@@ -123,7 +127,7 @@
   "requireCamelCaseOrUpperCaseIdentifiers": true,
   "disallowMultipleLineStrings": true,
   "validateQuoteMarks": "'",
-  "validateIndentation": <%= numberOfSpaces %>,
+  "validateIndentation": 2,
   "disallowMixedSpacesAndTabs": true,
   "disallowTrailingWhitespace": true,
   "requireKeywordsOnNewLine": [
