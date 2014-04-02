@@ -58,7 +58,7 @@ LibraryGenerator.prototype.projectfiles = function projectfiles() {
   this.mkdir('src');
 
   this.copy('gitignore', '.gitignore');
-  this.template('_LICENSE', '_LICENSE');
+  this.template('_LICENSE', 'LICENSE');
 
   this.template('_editorconfig', '.editorconfig');
   this.template('_bower.json', 'bower.json');
