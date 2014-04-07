@@ -1,6 +1,6 @@
 {
   "node": true,
-  "browser": false
+  "browser": false,
   "esnext": true,
   "bitwise": true,
   "camelcase": true,
@@ -18,7 +18,7 @@
   "strict": true,
   "trailing": true,
   "smarttabs": true,
-  "global": {
+  "globals": {
     "after": false,
     "afterEach": false,
     "before": false,
