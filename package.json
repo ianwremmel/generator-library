@@ -36,5 +36,12 @@
   },
   "licenses": [{
       "type": "MIT"
-  }]
+  }],
+  "config": {
+    "blanket": {
+      "pattern": [
+        "src"
+      ]
+    }
+  }
 }

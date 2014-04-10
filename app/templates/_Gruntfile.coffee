@@ -3,6 +3,9 @@ module.exports = (grunt) ->
   require('load-grunt-tasks')(grunt)
   require('time-grunt')(grunt)
 
+  _ = require 'lodash'
+  shelljs = require 'shelljs'
+
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
 
@@ -53,11 +56,15 @@ module.exports = (grunt) ->
     # Tests
     # -----
 
-    mochacli:
+    mochacov:
       options:
         files: ['test/spec/**/*.js']
         reporter: 'spec'
       spec: {}
+      coverage:
+        options:
+          reporter: 'html-cov'
+          output: '.tmp/coverage.html'
       debug:
         options:
           debug: true
@@ -73,22 +80,31 @@ module.exports = (grunt) ->
         command: 'mkdir -p <%%= config.dist %> && ./node_modules/.bin/browserify -d -s <%= _.camelize(appname) %> <%%= config.src %> > <%%= config.dist %>/<%= _.slugify(appname) %>.js'
 <% } %>
 
-    # Public Tasks
-    # ------------
+  grunt.registerTask 'coverage-report', ->
+      shelljs.exec 'open .tmp/coverage.html'
 
-    grunt.registerTask 'static-analysis', [
-      'jshint'
-      'jscs'
-    ]
+  grunt.registerTask 'coverage', [
+    'mochacov:coverage'
+    'coverage-report'
+  ]
 
-    grunt.registerTask 'build', [
-      'clean'
-      'static-analysis'
-      'test:spec'
-      'shell:browserify'
-    ]
+  # Public Tasks
+  # ------------
 
-    grunt.registerTask 'test:spec', ['mochacli:spec']
-    grunt.registerTask 'test:debug', ['mochacli:debug']
+  grunt.registerTask 'static-analysis', [
+    'jshint'
+    'jscs'
+  ]
 
-    grunt.registerTask 'default', ['build']
+  grunt.registerTask 'build', [
+    'clean'
+    'static-analysis'
+    'test:spec'
+    'coverage'
+    'shell:browserify'
+  ]
+
+  grunt.registerTask 'test:spec', ['mochacli:spec']
+  grunt.registerTask 'test:debug', ['mochacli:debug']
+
+  grunt.registerTask 'default', ['build']
