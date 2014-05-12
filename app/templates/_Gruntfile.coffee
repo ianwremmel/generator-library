@@ -10,8 +10,10 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON 'package.json'
 
     config:
-      src: 'src',
       dist: 'dist'
+      src:  'src'
+      test: 'test'
+      tmp:  '.tmp'
 
 
     # Utilities
@@ -25,12 +27,12 @@ module.exports = (grunt) ->
     bump:
       options:
         files: [
-          'package.json'
-          'bower.json'
+          'package.json'<% if (supportBrowsers) { %>
+          'bower.json'<% } %>
         ]
         commitFiles: [
-          'package.json'
-          'bower.json'
+          'package.json'<% if (supportBrowsers) { %>
+          'bower.json'<% } %>
         ]
         tagName: '%VERSION%'
         updateConfigs: ['pkg']
@@ -63,13 +65,13 @@ module.exports = (grunt) ->
 
     mochacov:
       options:
-        files: ['test/spec/**/*.js']
+        files: ['<%%= config.test %>/spec/**/*.js']
         reporter: 'spec'
       spec: {}
       coverage:
         options:
           reporter: 'html-cov'
-          output: '.tmp/coverage.html'
+          output: '<%%= config.tmp %>/coverage.html'
       debug:
         options:
           debug: true
@@ -86,7 +88,7 @@ module.exports = (grunt) ->
 <% } %>
 
   grunt.registerTask 'coverage-report', ->
-      shelljs.exec 'open .tmp/coverage.html'
+      shelljs.exec 'open <%%= config.tmp %>/coverage.html'
 
   grunt.registerTask 'coverage', [
     'mochacov:coverage'
@@ -106,10 +108,12 @@ module.exports = (grunt) ->
     'static-analysis'
     'test:spec'
     'coverage'
-    'shell:browserify'
+    'browserify'
   ]
 
-  grunt.registerTask 'test:spec', ['mochacli:spec']
-  grunt.registerTask 'test:debug', ['mochacli:debug']
+  grunt.registerTask 'test:spec', ['mochacov:spec']
+  grunt.registerTask 'test:debug', ['mochacov:debug']
+
+  grunt.registerTask 'browserify', ['shell:browserify']
 
   grunt.registerTask 'default', ['build']
