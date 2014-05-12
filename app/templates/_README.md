@@ -35,4 +35,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ---
 
-*This file was first generated <%= (new Date()).toISOString().split('T')[0] %>*
+*This file was first generated <%= (new Date()).toString() %>*
