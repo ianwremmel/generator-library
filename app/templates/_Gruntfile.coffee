@@ -28,8 +28,13 @@ module.exports = (grunt) ->
           'package.json'
           'bower.json'
         ]
+        commitFiles: [
+          'package.json'
+          'bower.json'
+        ]
         tagName: '%VERSION%'
         updateConfigs: ['pkg']
+        pushTo: 'origin'
 
     githooks:
       'pre-commit':
