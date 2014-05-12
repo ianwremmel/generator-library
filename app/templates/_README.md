@@ -1,11 +1,11 @@
 # <%= appname %> 
 
-[![GitHub version](https://badge.fury.io/gh/<%= username %>/<%= _.sluggify(appname).svg)](http://badge.fury.io/gh/<%= username %>/<%= _.sluggify(appname))
+[![GitHub version](https://badge.fury.io/gh/<%= username %>/<%= _.slugify(appname).svg %>)](http://badge.fury.io/gh/<%= username %>/<%= _.slugify(appname) %>)
 [![Build Status](https://secure.travis-ci.org/<%= username %>/<%= _.slugify(appname) %>.png?branch=master)](https://travis-ci.org/<%= username %>/<%= _.slugify(appname) %>) 
 [![Dependencies](https://david-dm.org/<%= username %>/<%= _.slugify(appname) %>.png)](https://david-dm.org/<%= username %>/<%= _.slugify(appname) %>)
-
+<% if (description) { %>
 > <%= description %>
-
+<% } %>
 ## Sublime Text
 
 The following Sublime Plugins will aid your development flow.
