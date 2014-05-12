@@ -43,6 +43,11 @@ LibraryGenerator.prototype.askFor = function askFor() {
     name: 'username',
     message: 'Enter your github username.',
     default: 'ianwremmel'
+  }, {
+    type: 'string',
+    name: 'description',
+    message: 'Explain your project in one sentence',
+    default: ''
   }];
 
   this.prompt(prompts, function (props) {

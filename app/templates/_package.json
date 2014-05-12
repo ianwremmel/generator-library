@@ -1,6 +1,7 @@
 {
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.1",
+  "description": <%= descrition %>,
   "main": "src/index.js",
   "scripts": {<% if (bowerIncludes) { %>
     "postinstall": "npm/postinstall.sh", <% } %>

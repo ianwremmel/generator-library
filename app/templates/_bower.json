@@ -1,6 +1,7 @@
 {
   "name": "<%= _.slugify(appname) %>",
   "version": "0.0.1",
+  "description": <%= descrition %>,
   "main": "dist/<%= _.slugify(appname) %>.js",
   "ignore": [
     "node_modules",
