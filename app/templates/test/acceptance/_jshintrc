@@ -6,6 +6,7 @@
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
+  "globalstrict": true,
   "immed": true,
   "indent": <%= numberOfSpaces %>,
   "latedef": true,
@@ -23,7 +24,14 @@
     "afterEach": false,
     "before": false,
     "beforeEach": false,
+    "browser": false,
+    "By": false,
     "describe": false,
-    "it": false
+    "element": false,
+    "expect": false,
+    "it": false,
+    "protractor": false,
+    "runs": false,
+    "waitsFor": false
   }
 }

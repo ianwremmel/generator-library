@@ -35,8 +35,8 @@ describe('library generator', function () {
 
       'src/index.js',
 
-      'test/spec/test.js',
-      'test/.jshintrc'
+      'test/unit/spec/test.js',
+      'test/unit/.jshintrc'
     ];
 
     helpers.mockPrompt(this.app, {

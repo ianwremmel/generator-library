@@ -10,5 +10,12 @@
   "authors": [
     "Ian Remmel <design@ianwremmel.com>"
   ],
+  "dependencies": {<% if (angular) { %>
+    "angular": "~1.2.6"
+  <% } %>},
+  "devDependencies": {<% if (angular) { %>
+    "angular-mocks": "~1.2.6",
+    "jquery": "~2.1.1"
+  <% } %>},
   "private": true
 }

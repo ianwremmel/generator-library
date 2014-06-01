@@ -1,4 +1,7 @@
-# generator-library [![Build Status](https://secure.travis-ci.org/ianwremmel/generator-library.png?branch=master)](https://travis-ci.org/ianwremmel/generator-library) [![Dependencies](https://david-dm.org/ianwremmel/generator-library.png)](https://david-dm.org/ianwremmel/generator-library)
+# generator-library 
+
+[![Build Status](https://secure.travis-ci.org/ianwremmel/generator-library.png?branch=master)](https://travis-ci.org/ianwremmel/generator-library)
+[![Dependencies](https://david-dm.org/ianwremmel/generator-library.png)](https://david-dm.org/ianwremmel/generator-library)
 
 
 
@@ -36,10 +39,21 @@ It is unlikely to ever end up in npm.
 - If you're doing anything in the frontend, you'll be using browserify.
 - Your name is `Ian W. Remmel` and all your projects will be `Copyright (c) Ian W. Remmel`.
 
+## TODO
+
+- Add in-browser tests
+- Solve the lodash/underscore problem
+- Setup dependent prompts
+- Add question about private vs public and use gitlab badges as appropriate
+- Ensure postinstall is run even if includeBower is false
+- Githooks to check tests for `it.only`, `describe.only`
+- add build-before-push or configure build server to commit built version
+- consider automatically bumping the patch version on every successful build
+- get karma from wx-js-sdk
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ianwremmel/generator-library/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

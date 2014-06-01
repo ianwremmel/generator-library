@@ -1,0 +1,34 @@
+{
+  "node": true,
+  "browser": <%= supportBrowsers %>,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "globalstrict": true,
+  "immed": true,
+  "indent": <%= numberOfSpaces %>,
+  "latedef": true,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": true,
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "globals": {
+    "after": false,
+    "afterEach": false, <% if (angular) { %>
+    "angular": false, <% } %>
+    "assert": false,
+    "before": false,
+    "beforeEach": false,
+    "describe": false, <% if (angular) { %>
+    "inject": false,
+    "it": false,
+    "module": false <% } %>
+  }
+}

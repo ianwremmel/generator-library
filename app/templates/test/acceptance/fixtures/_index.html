@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body ng-app="<%= _.camelize(appname) %>TestSuite">
+  <p>Put some HTML here so protractor can interact with your app</p>
+  <!-- import jquery for debugging purposes (angular.element kinda sucks without it) -->
+  <script src="/jquery/dist/jquery.js"></script>
+  <script src="/angular/angular.js"></script>
+  <script src="/<%= _.slugify(appname) %>.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

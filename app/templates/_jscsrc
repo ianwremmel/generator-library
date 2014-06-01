@@ -57,7 +57,6 @@
   "disallowLeftStickedOperators": [
     "?",
     "+",
-    "-",
     "=",
     "==",
     "===",
@@ -77,8 +76,8 @@
   ],
   "disallowRightStickedOperators": [
     "?",
-    ",",
     "+",
+    "-",
     ":",
     "=",
     "==",
@@ -127,7 +126,7 @@
   ],
   "disallowMultipleLineStrings": true,
   "validateQuoteMarks": "'",
-  "validateIndentation":  <%= numberOfSpaces %>,
+  "validateIndentation": 2,
   "disallowMixedSpacesAndTabs": true,
   "disallowTrailingWhitespace": true,
   "requireKeywordsOnNewLine": [

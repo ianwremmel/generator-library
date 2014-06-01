@@ -3,7 +3,7 @@
 var chai = require('chai');
 var assert = chai.assert;
 
-var <%= _.camelize(appname) %> = require('../../src');
+var <%= _.camelize(appname) %> = require('../../../src');
 
 describe('the test suite', function() {
   it('works', function() {
