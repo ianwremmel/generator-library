@@ -1,5 +1,7 @@
 # generator-library 
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ianwremmel/generator-library.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://secure.travis-ci.org/ianwremmel/generator-library.png?branch=master)](https://travis-ci.org/ianwremmel/generator-library)
 [![Dependencies](https://david-dm.org/ianwremmel/generator-library.png)](https://david-dm.org/ianwremmel/generator-library)
 
